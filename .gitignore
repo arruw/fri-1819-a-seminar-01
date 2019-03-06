@@ -150,3 +150,5 @@ dmypy.json
 .history
 
 # End of https://www.gitignore.io/api/git,python,visualstudiocode
+
+**/*.zip
