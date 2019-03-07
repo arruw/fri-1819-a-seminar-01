@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/.*": true,
+        "**/CVS": true,
+        "**/__pycache__": true,
+    }
+}
