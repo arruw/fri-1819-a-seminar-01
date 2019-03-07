@@ -3,5 +3,19 @@
         "**/.*": true,
         "**/CVS": true,
         "**/__pycache__": true,
-    }
+    },
+
+    "editor.tabSize": 2,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+
+    // "python.analysis.disabled": [
+    //     "unresolved-import"
+    // ],
+
+    "python.jediEnabled": true,
+    "cSpell.words": [
+        "functools",
+        "nowait"
+    ],
 }

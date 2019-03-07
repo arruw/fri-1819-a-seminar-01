@@ -1,6 +1,7 @@
 import chess
+from typing import List
 
-def createBoardFromFen(input):
+def createBoardFromFen(input) -> (chess.Board, int):
   f = open(input, 'r')
   raw = f.read()
   
@@ -12,7 +13,7 @@ def createBoardFromFen(input):
     
   return (board, rounds)
 
-def generateMoves(board, rounds):
+def generateMoves(board, rounds) -> List[chess.Move]:
   
   if rounds == 0:
     return list()
