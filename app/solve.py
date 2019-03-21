@@ -15,6 +15,10 @@ from utils.ZobristHasher import ZobristHasher
 # http://eprints.fri.uni-lj.si/3610/1/63100292-MITJA_RIZVI%C4%8C-Avtomatsko_odkrivanje_zanimivih_%C5%A1ahovskih_problemov.pdf
 def solve(board: Board, moves: int, timeout: int, debug: bool):
 
+  if debug:
+    print("Initial state:")
+    print(board)
+
   if moves <= 0:
     return None
 
@@ -33,7 +37,9 @@ def solve(board: Board, moves: int, timeout: int, debug: bool):
 
     # We found solution 
     if current.is_goal():
-      # print('current.is_goal(): return True.')
+      if debug:
+        print("Found:")
+        print(current.board)
       return current.get_path()
 
     # We can not do more moves

@@ -66,13 +66,16 @@ class State:
       yield __next(move)
 
   def is_goal(self):
-    return self.board.was_into_check()
+    self.board.push(Move.null())
+    is_checkmate = self.board.is_checkmate()
+    self.board.pop()
+    return is_checkmate
     
   def get_path(self):
-    path = self.move
+    path = self.move[:2] + "-" + self.move[2:]
     parent = self.parent
     while parent != None and parent.move != None:
-      path = parent.move + "->" + path
+      path = parent.move[:2] + "-" + parent.move[2:] + ";" + path
       parent = parent.parent
 
     return path
