@@ -1,75 +1,56 @@
 from chess import Board, Move
+from time import time
 
-from datastructures.PriorityHashQueue import PriorityHashQueue
-from dcs.State import State
+from utils.State import State
 from typing import List
 
-import utils.helpers as helpers
+from queue import PriorityQueue
 
-from heuristic.Covering import Covering as Heuristic
-
-import queue
+from heuristic.Euclidean import Euclidean as Heuristic
+from utils.ZobristHasher import ZobristHasher
 
 # TODO: https://www.growingwiththeweb.com/2012/06/a-pathfinding-algorithm.html
 # http://mat.uab.cat/~alseda/MasterOpt/AStar-Algorithm.pdf
-def solve(input):
-  (board, rounds) = helpers.createBoardFromFen(input)
+# https://gitlab.com/dsaiko
+# http://eprints.fri.uni-lj.si/3610/1/63100292-MITJA_RIZVI%C4%8C-Avtomatsko_odkrivanje_zanimivih_%C5%A1ahovskih_problemov.pdf
+def solve(board: Board, moves: int, timeout: int, debug: bool):
 
-  if rounds <= 0:
+  if moves <= 0:
     return None
 
-  hf = Heuristic()
-  start_fen = board.fen()
-  start = State(start_fen, board, rounds, 0, hf.get(start_fen))
+  # Initialize data structures
+  queue = PriorityQueue()
+  solved = dict()
 
-  # Open
-  pq = PriorityHashQueue()
-  pq.push(start)
+  # Initialize starting state
+  start = State(board, moves, None, None, Heuristic(), ZobristHasher())
+  queue.put_nowait(start)
 
-  # Closed
-  c = {}
-  
-  # Path
-  path = {}
-
-  while not pq.empty():
-    current: State = pq.pop()
+  time_limit = time() + timeout
+  while not queue.empty() and time() < time_limit:
+    current: State = queue.get_nowait()
+    solved[current.id] = current
 
     # We found solution 
-    if current.board.is_game_over():
-      break # TODO: construct path
-
-    c[current.id] = current
+    if current.is_goal():
+      # print('current.is_goal(): return True.')
+      return current.get_path()
 
     # We can not do more moves
-    if current.rounds == 0:
+    if current.movesLeft == 0:
+      # print('current.movesLeft == 0: continue...')
       continue
 
-    moves: List[Move] = helpers.generateMoves(board, current.rounds)
-    for move in moves:
-      next_board: Board = current.board.copy(stack=False)
-      next_board.push(move)
-      next_board.push(Move.null())
-      next_id = next_board.fen()
-
-      if next_id in c:
-        print('next_id in c ... continue ...')
+    # Generate possible next states
+    for neighbor in current.generate():
+      
+      if neighbor.id in solved:
+        # print('neighbor.id in solved: continue...')
         continue
+
+      queue.put_nowait(neighbor)
       
-      next_g = current.g + 1 # TODO: + ?
-      next_h = hf.get(next_id)
-      next_f = next_g + next_h
-
-      next = State(next_id, next_board, rounds-1, next_g, next_f)
-
-      if not pq.has(next_id):
-        pq.push(next)
-      elif next_g >= c[next_id].g:
-        continue   
-
-      path[next_id] = current
-      
-  return path
+  return False
     
     
 

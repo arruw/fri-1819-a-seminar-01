@@ -15,7 +15,10 @@
 
     "python.jediEnabled": true,
     "cSpell.words": [
+        "Zobrist",
         "functools",
+        "heapq",
+        "itertools",
         "nowait"
     ],
 }

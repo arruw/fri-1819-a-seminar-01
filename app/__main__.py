@@ -1,11 +1,40 @@
 #!/usr/bin/env python3
 
-import sys
-import solve as s
+from sys import argv
+from chess import Board
+
+from solve import solve
+from utils.Profiler import Profiler
 
 def main(argv):
-  s.solve(argv[1])
-  return 0
+  assert len(argv) >= 2
+
+  input = argv[1]
+  timeout = int(argv[2]) if len(argv) >= 3 else 30
+  debug = bool(argv[3]) if len(argv) >= 4 else False
+
+
+  f = open(input, 'r')
+  raw = f.read()
+  
+  moves = int(raw.split(' ')[-1])
+  fen = ' '.join(raw.split(' ')[:-1]) + ' KQkq - 0 1'
+  
+  board = Board()
+  board.set_fen(fen)
+    
+  profiler = None
+  if debug:
+    profiler = Profiler()
+    profiler.enable()
+
+  path = solve(board, moves, timeout, debug)
+
+  if debug:
+    profiler.disable()
+    profiler.print()
+
+  print(path)
 
 if __name__ == '__main__':
-  main(sys.argv)
+  main(argv)
