@@ -6,7 +6,8 @@ This project is based on paper [Janko, V., & Guid, M. (2016). A program for Prog
 
 Detailed paper [Janko, V (2015). Razvoj programa za igranje 1-2-3 šaha.](http://eprints.fri.uni-lj.si/4124/1/Mag._delo_%2D_Janko.pdf).
 
-## Tode
+## Todo
+
 - [ ] Implement few heuristics
 - [ ] Fix A* to update state with more moves available
 - [ ] Write report
@@ -15,12 +16,12 @@ Detailed paper [Janko, V (2015). Razvoj programa za igranje 1-2-3 šaha.](http:/
 ## Installation and usage
 ### 1. Install dependencis
 ```
-$ ./install.sh
+$ make install
 ```
 
 ### 2. Pack project
 ```
-$ ./pack.sh
+$ make pack
 ```
 
 ### 3. Run project

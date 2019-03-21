@@ -1,5 +1,4 @@
 from chess import Board, Move, SQUARE_NAMES, KING
-from chess.polyglot import zobrist_hash
 
 class State:
 
