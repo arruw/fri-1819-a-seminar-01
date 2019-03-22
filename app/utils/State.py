@@ -1,21 +1,22 @@
 from chess import Board, Move, SQUARE_NAMES, KING
 
+MOVE_NULL = Move.null()
+
 class State:
 
-  def __init__(self, board: Board, movesLeft: int, parent: 'State', move: str, hf, zhf):
+  def __init__(self, board: Board, movesLeft: int, parent: 'State', move: Move, is_checkmate: bool, hf, zhf):
     # Core
     self.board = board
     self.movesLeft = movesLeft
+    self.is_checkmate = is_checkmate
 
     # Pointer
     self.parent = parent
     self.move = move
 
     # Id
-    # self.fen = board.fen()
-    # self.id = hash(self.fen + str(movesLeft))
     self.zhf = zhf
-    self.id = zhf.update(self.parent.id, self.parent.board, Move.from_uci(self.move)) if self.parent != None else zhf.hash(self.board)
+    self.id = zhf.update(self.parent.id, self.parent.board, self.move) if self.parent != None else zhf.hash(self.board)
 
     # Score
     self.hf = hf
@@ -29,7 +30,7 @@ class State:
 
   def __lt__(self, other: 'State') -> bool:
     return self.score < other.score
-
+  
   def generate(self):
     if self.movesLeft <= 0:
       return
@@ -37,13 +38,17 @@ class State:
     def __next(move: Move) -> 'State':
       board = self.board.copy()
       board.push(move)
-      board.push(Move.null())
+
+      is_checkmate = board.is_checkmate()
+
+      board.push(MOVE_NULL)
 
       return State(
         board=board,
         movesLeft=self.movesLeft-1,
         parent=self,
-        move=move.uci(),
+        move=move,
+        is_checkmate=is_checkmate,
         hf=self.hf,
         zhf=self.zhf
       )
@@ -65,16 +70,15 @@ class State:
       yield __next(move)
 
   def is_goal(self):
-    self.board.push(Move.null())
-    is_checkmate = self.board.is_checkmate()
-    self.board.pop()
-    return is_checkmate
+    return self.is_checkmate
     
   def get_path(self):
-    path = self.move[:2] + "-" + self.move[2:]
+    uci = self.move.uci()
+    path = uci[:2] + "-" + uci[2:]
     parent = self.parent
     while parent != None and parent.move != None:
-      path = parent.move[:2] + "-" + parent.move[2:] + ";" + path
+      uci = parent.move.uci()
+      path = uci[:2] + "-" + uci[2:] + ";" + path
       parent = parent.parent
 
     return path

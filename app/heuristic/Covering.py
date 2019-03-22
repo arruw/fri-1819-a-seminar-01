@@ -18,7 +18,7 @@ class Covering:
 
     h = 0
     for mating_square in mating_squares:
-      h += len(state.board.attackers(not enemy_king_color, mating_square))
+      h -= len(state.board.attackers(not enemy_king_color, mating_square))
     
     return h
 

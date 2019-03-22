@@ -10,10 +10,8 @@ def main(argv):
   assert len(argv) >= 2
 
   input = argv[1]
-  timeout = int(argv[2]) if len(argv) >= 3 else 30
-  debug = bool(argv[3]) if len(argv) >= 4 else False
-  profile = bool(argv[4]) if len(argv) >= 5 else False
-
+  timeout = 20
+  profile = True
 
   f = open(input, 'r')
   raw = f.read()
@@ -29,7 +27,7 @@ def main(argv):
     profiler = Profiler()
     profiler.enable()
 
-  path = solve(board, moves, timeout, debug)
+  path = solve(board, moves, timeout)
 
   if profile:
     profiler.disable()

@@ -13,11 +13,7 @@ from utils.ZobristHasher import ZobristHasher
 # http://mat.uab.cat/~alseda/MasterOpt/AStar-Algorithm.pdf
 # https://gitlab.com/dsaiko
 # http://eprints.fri.uni-lj.si/3610/1/63100292-MITJA_RIZVI%C4%8C-Avtomatsko_odkrivanje_zanimivih_%C5%A1ahovskih_problemov.pdf
-def solve(board: Board, moves: int, timeout: int, debug: bool):
-
-  if debug:
-    print("Initial state:")
-    print(board)
+def solve(board: Board, moves: int, timeout: int):
 
   if moves <= 0:
     return None
@@ -27,7 +23,7 @@ def solve(board: Board, moves: int, timeout: int, debug: bool):
   solved = dict()
 
   # Initialize starting state
-  start = State(board, moves, None, None, Heuristic(), ZobristHasher())
+  start = State(board, moves, None, None, False, Heuristic(), ZobristHasher())
   queue.put_nowait(start)
 
   time_limit = time() + timeout
@@ -37,21 +33,16 @@ def solve(board: Board, moves: int, timeout: int, debug: bool):
 
     # We found solution 
     if current.is_goal():
-      if debug:
-        print("Found:")
-        print(current.board)
       return current.get_path()
 
     # We can not do more moves
     if current.movesLeft == 0:
-      # print('current.movesLeft == 0: continue...')
       continue
 
     # Generate possible next states
     for neighbor in current.generate():
       
       if neighbor.id in solved:
-        # print('neighbor.id in solved: continue...')
         continue
 
       queue.put_nowait(neighbor)
