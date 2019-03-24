@@ -204,7 +204,10 @@ def solve(board, moves):
     for neighbor in current.generate():
       
       if neighbor.id in solved:
-        continue
+        if solved[neighbor.id].movesLeft > neighbor.movesLeft:
+          continue
+        else:
+          del solved[neighbor.id]
 
       generated.put_nowait(neighbor)
       

@@ -44,7 +44,10 @@ def solve(board: Board, moves: int, timeout: int):
     for neighbor in current.generate():
       
       if neighbor.id in solved:
-        continue
+        if solved[neighbor.id].movesLeft > neighbor.movesLeft:
+          continue
+        else:
+          del solved[neighbor.id]
 
       queue.put_nowait(neighbor)
       
