@@ -102,6 +102,8 @@ class Covering:
   Defines Covering Heuristics for A* algorithm.
 
   Covering Heuristics count how many times enemy mating squares are attacked by us.
+  + Promotions
+  + Pins
   """
 
   def __init__(self, board):
@@ -125,7 +127,47 @@ class Covering:
     for mating_square in self.mating_squares:
       h -= len(state.board.attackers(not self.enemy_king_color, mating_square))
     
+    return h + self.__promotion(state) + self.__pin(state)
+
+  def __promotion(self, state):
+    
+    step = 8
+    stop = 64
+    if not state.board.turn:
+      step = -8
+      stop = -1
+
+    h = 0
+    for pawn in state.board.pieces(chess.PAWN, state.board.turn):
+      from_square = pawn
+
+      # Pawn path
+      path = list(range(pawn+step, stop, step))
+      path_len = len(path)
+
+      # Is path short enough
+      if path_len > state.movesLeft:
+        continue
+
+      # Is path clear & not move in check
+      is_possible = True
+      for to_square in path:
+        if state.board.piece_at(to_square):
+          is_possible = False
+          break
+        if state.board.is_into_check(chess.Move(from_square, to_square)):
+          is_possible = False
+          break
+        from_square = to_square
+      if not is_possible:
+        continue
+
+      h -= 1
+    
     return h
+      
+  def __pin(self, state):
+    return 0
 
 
 class ZobristHasher:
