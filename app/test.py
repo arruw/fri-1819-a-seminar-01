@@ -12,15 +12,15 @@ def parseInput(input):
   board = chess.Board()
   board.set_fen(fen)
 
-  return (board, moves)
+  return (board, moves, raw)
 
 files = [os.path.join(sys.argv[1], f) for f in os.listdir(sys.argv[1]) if os.path.isfile(os.path.join(sys.argv[1], f))]
 passed = 0
 
 profiler = Profiler()
 
-for index, file in enumerate(files):
-  board, moves = parseInput(file)
+for index, file in enumerate(sorted(files)):
+  board, moves, fenx = parseInput(file)
   
   start = time.time()
   profiler.enable()
@@ -28,11 +28,15 @@ for index, file in enumerate(files):
   profiler.disable()
   end = time.time()
 
-  mark = '[SUCCESS]' if path else '[FAIL]   ' 
+  mark = '[FAIL]   ' 
   if path:
-    passed += 1
+    if len(path.split(';')) == moves:
+      mark = '[SUCCESS]'
+      passed += 1
+    else:
+      mark = '[ERROR]  '
 
-  print(f'{index+1}/{len(files)} {mark} {int(start)}+{int(end-start)} {path}')
+  print(f'{index+1:02d}/{len(files)} {mark} {int(start)}+{int(end-start):02d} {file}\n\t{fenx}\n\t{path}')
 
 print(f'Done, passed {passed} out of {len(files)}.')
 profiler.print()

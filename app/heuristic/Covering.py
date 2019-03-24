@@ -1,24 +1,28 @@
 from chess import Board, Color, Square, Move
 from utils.State import State
-from functools import lru_cache
 
 class Covering:
 
-  def score(self, state: State) -> int:
-    return self.__score(state)
+  def __init__(self, board: Board):
+    self.__cache = dict()
 
-  @lru_cache(maxsize=None)
+    self.enemy_king_color: Color = not board.turn
+    enemy_king_square: Square = board.king(self.enemy_king_color)
+
+    self.mating_squares: [int] = list(board.attacks(enemy_king_square))
+    self.mating_squares.append(enemy_king_square)
+
+  def score(self, state: State) -> int:
+    if state.id not in self.__cache:
+      self.__cache[state.id] = self.__score(state)
+
+    return self.__cache[state.id]
+
   def __score(self, state: State) -> int:
     
-    enemy_king_color: Color = not state.board.turn
-    enemy_king_square: Square = state.board.king(enemy_king_color)
-
-    mating_squares: [int] = list(state.board.attacks(enemy_king_square))
-    mating_squares.append(enemy_king_square)
-
     h = 0
-    for mating_square in mating_squares:
-      h -= len(state.board.attackers(not enemy_king_color, mating_square))
+    for mating_square in self.mating_squares:
+      h -= len(state.board.attackers(not self.enemy_king_color, mating_square))
     
     return h
 

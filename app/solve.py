@@ -6,7 +6,7 @@ from typing import List
 
 from queue import PriorityQueue
 
-from heuristic.Euclidean import Euclidean as Heuristic
+from heuristic.Covering import Covering as Heuristic
 from utils.ZobristHasher import ZobristHasher
 
 # TODO: https://www.growingwiththeweb.com/2012/06/a-pathfinding-algorithm.html
@@ -23,7 +23,8 @@ def solve(board: Board, moves: int, timeout: int):
   solved = dict()
 
   # Initialize starting state
-  start = State(board, moves, None, None, False, Heuristic(), ZobristHasher())
+  hf = Heuristic(board)
+  start = State(board, moves, None, None, False, hf, ZobristHasher())
   queue.put_nowait(start)
 
   time_limit = time() + timeout
