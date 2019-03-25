@@ -1,7 +1,5 @@
 import chess, random
 
-MOVE_NULL = chess.Move.null()
-
 class ZobristHasher:
   def __init__(self):
     self.__table = [[random.randint(1,2**64 - 1) for fi in range(12)] for bi in range(64)]
@@ -20,7 +18,7 @@ class ZobristHasher:
     return zobrist_hash
   
   def update(self, zobrist_hash, board: chess.Board, move: chess.Move):
-    if move == MOVE_NULL:
+    if not move:
       return zobrist_hash
 
     piece: chess.Piece = board.piece_at(move.from_square)

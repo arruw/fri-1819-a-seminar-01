@@ -8,10 +8,7 @@ Detailed paper [Janko, V (2015). Razvoj programa za igranje 1-2-3 šaha.](http:/
 
 ## Todo
 
-- [ ] Implement few heuristics
-- [ ] Fix A* to update state with more moves available
 - [ ] Write report
-- [ ] Fix debug and profile flags
 
 ## Installation and usage
 ### 1. Install dependencis

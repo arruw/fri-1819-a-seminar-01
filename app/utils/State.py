@@ -16,7 +16,10 @@ class State:
 
     # Id
     self.zhf = zhf
-    self.id = zhf.update(self.parent.id, self.parent.board, self.move) if self.parent != None else zhf.hash(self.board)
+    try:
+      self.id = zhf.update(self.parent.id, self.parent.board, self.move)
+    except AttributeError:
+      self.id = zhf.hash(self.board)
 
     # Score
     self.hf = hf
@@ -36,11 +39,10 @@ class State:
       return
 
     def __next(move: Move) -> 'State':
-      board = self.board.copy()
+      board: Board = self.board.copy(stack=False)
+      board.move_stack = self.board.move_stack.copy()
       board.push(move)
-
       is_checkmate = board.is_checkmate()
-
       board.push(MOVE_NULL)
 
       return State(

@@ -28,7 +28,10 @@ class State:
 
     # Id
     self.zhf = zhf
-    self.id = zhf.update(self.parent.id, self.parent.board, self.move) if self.parent != None else zhf.hash(self.board)
+    try:
+      self.id = zhf.update(self.parent.id, self.parent.board, self.move)
+    except AttributeError:
+      self.id = zhf.hash(self.board)
 
     # Score
     self.hf = hf
@@ -48,11 +51,10 @@ class State:
       return
 
     def __next(move):
-      board = self.board.copy()
+      board = self.board.copy(stack=False)
+      board.move_stack = self.board.move_stack.copy()
       board.push(move)
-
       is_checkmate = board.is_checkmate()
-
       board.push(MOVE_NULL)
 
       return State(
@@ -127,10 +129,19 @@ class Covering:
     for mating_square in self.mating_squares:
       h -= len(state.board.attackers(not self.enemy_king_color, mating_square))
     
-    return h + self.__promotion(state) + self.__pin(state)
+    return h + self.__promotion(state)
 
   def __promotion(self, state):
     
+    """
+    Count number of pawns that can promote.
+
+    Pawn can promote if:
+    - number of moves to promotion must be achievable in number of moves that are left
+    - file path to promotion is clear
+    - pawn can not move into check
+    """
+
     step = 8
     stop = 64
     if not state.board.turn:
@@ -198,7 +209,7 @@ class ZobristHasher:
     return zobrist_hash
   
   def update(self, zobrist_hash, board, move):
-    if move == MOVE_NULL:
+    if not move:
       return zobrist_hash
 
     piece = board.piece_at(move.from_square)
