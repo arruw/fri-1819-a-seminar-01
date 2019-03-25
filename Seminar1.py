@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+# Author:     Matjaž Mav
+# E-mail:     mm3058@student.uni-lj.si
+# Student ID: 63130148
+# Year:       2019
+
 import sys, random, queue, chess
 
-# Prevents initializing NULL move many times
+# Prevents initializing NULL move more then once
 MOVE_NULL = chess.Move.null()
 
 class State:
