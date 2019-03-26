@@ -1,0 +1,168 @@
+01/60 [SUCCESS] 1553626283+00 inputs/1.txt  04 f8-b4;b8-a6;a6-c5;c5-d3
+02/60 [SUCCESS] 1553626284+01 inputs/10.txt 04 c7-c6;d8-b6;b6-f2;f8-c5
+03/60 [SUCCESS] 1553626285+00 inputs/11.txt 04 c8-g4;d8-d5;d5-d4;d4-d1
+04/60 [SUCCESS] 1553626286+00 inputs/12.txt 04 c8-g4;d8-d5;d5-d2;d2-d1
+05/60 [SUCCESS] 1553626286+00 inputs/13.txt 04 c8-g4;d5-c4;d8-d2;d2-d1
+06/60 [SUCCESS] 1553626286+01 inputs/14.txt 04 c6-d4;d4-f3;d8-d6;d6-e5
+07/60 [SUCCESS] 1553626287+00 inputs/15.txt 04 e7-e6;f8-b4;d8-g5;g5-e3
+08/60 [SUCCESS] 1553626288+00 inputs/16.txt 04 c6-d4;d4-f3;d8-d5;d5-d2
+09/60 [SUCCESS] 1553626288+00 inputs/17.txt 04 f6-e4;e7-e5;f8-b4;d8-h4
+10/60 [SUCCESS] 1553626288+00 inputs/18.txt 04 d8-g5;g5-d2;f8-b4;d2-c1
+11/60 [ERROR]   1553626288+00 inputs/19.txt 05 d5-c6;c6-c7;c7-c8q;c8-e6
+12/60 [SUCCESS] 1553626288+00 inputs/2.txt  04 d8-d5;d5-d2;c6-d4;d4-f3
+13/60 [SUCCESS] 1553626288+00 inputs/20.txt 05 f3-e5;d5-d6;d6-e7;e7-f8q;f8-f7
+14/60 [SUCCESS] 1553626288+00 inputs/21.txt 05 b1-a3;a1-c1;g2-g3;f1-h3;c1-c8
+15/60 [ERROR]   1553626288+00 inputs/22.txt 05 b5-c6;c1-g5;c3-d5;d5-c7
+16/60 [SUCCESS] 1553626289+04 inputs/23.txt 05 e1-f2;b1-c3;c3-d5;d5-c7;a1-d1
+17/60 [SUCCESS] 1553626293+00 inputs/24.txt 05 c1-d2;f1-b5;b1-c3;d2-g5;a1-d1
+18/60 [FAIL]    1553626293+20 inputs/25.txt 05 False
+19/60 [SUCCESS] 1553626313+01 inputs/26.txt 05 b5-c6;g1-h3;e1-g1;f1-f5;f5-e5
+20/60 [FAIL]    1553626315+20 inputs/27.txt 05 False
+21/60 [SUCCESS] 1553626335+00 inputs/28.txt 05 d2-b4;f1-b5;b1-c3;c3-d5;d5-f6
+22/60 [SUCCESS] 1553626336+09 inputs/29.txt 05 f1-b5;b1-d2;d8-g5;d2-c4;c4-d6
+23/60 [SUCCESS] 1553626345+00 inputs/3.txt  04 d8-d5;d5-f3;f3-d1;c8-g4
+24/60 [SUCCESS] 1553626346+07 inputs/30.txt 05 e1-d1;e4-e5;e5-e6;e6-d7;d7-c8q
+25/60 [FAIL]    1553626353+20 inputs/31.txt 05 False
+26/60 [SUCCESS] 1553626373+00 inputs/32.txt 05 f4-f5;f5-f6;f6-e7;e7-d8q;c1-g5
+27/60 [SUCCESS] 1553626373+00 inputs/33.txt 05 c4-d5;d5-d6;d6-e7;c1-g5;e7-d8q
+28/60 [ERROR]   1553626374+00 inputs/34.txt 05 f1-b5;c1-g5;a3-c4;c4-d6
+29/60 [SUCCESS] 1553626374+00 inputs/35.txt 05 e1-d1;c1-g5;a1-c1;c1-c8;c8-d8
+30/60 [SUCCESS] 1553626375+00 inputs/36.txt 05 d4-e5;e5-e6;e6-e7;e7-f8q;f8-e7
+31/60 [SUCCESS] 1553626375+00 inputs/37.txt 06 e8-f7;a8-a6;a6-e6;g8-h6;h6-g4;e6-e3
+32/60 [SUCCESS] 1553626375+00 inputs/38.txt 06 b4-c3;b7-b6;c8-a6;b8-c6;c6-d4;d4-f3
+33/60 [SUCCESS] 1553626376+03 inputs/39.txt 06 f8-c5;h6-g4;h8-e8;e8-e5;g4-h2;h2-f3
+34/60 [SUCCESS] 1553626379+00 inputs/4.txt  04 f8-b4;b8-c6;c6-d4;d4-f3
+35/60 [ERROR]   1553626380+00 inputs/40.txt 06 c8-g4;e5-d4;d4-c3;c3-c2;c2-c1q
+36/60 [SUCCESS] 1553626380+01 inputs/41.txt 06 c5-f2;c8-g4;b8-c6;c6-d4;a8-d8;d4-e2
+37/60 [FAIL]    1553626381+20 inputs/42.txt 06 False
+38/60 [SUCCESS] 1553626401+00 inputs/43.txt 07 d1-d2;f1-b5;h8-g6;h1-c1;c1-c7;g6-f8;f8-e6
+39/60 [FAIL]    1553626401+20 inputs/44.txt 07 False
+40/60 [ERROR]   1553626422+13 inputs/45.txt 07 c1-a3;f1-b5;d4-d5;d5-c6;c6-c7;c7-b8q
+41/60 [FAIL]    1553626435+20 inputs/46.txt 07 False
+42/60 [SUCCESS] 1553626455+04 inputs/47.txt 07 f3-e5;d4-d5;d5-c6;c6-c7;c7-c8q;f1-c4;c8-b8
+43/60 [SUCCESS] 1553626459+00 inputs/48.txt 07 f1-b5;b1-c3;c3-d5;a1-c1;g1-f3;f3-e5;e5-f7
+44/60 [SUCCESS] 1553626459+15 inputs/49.txt 08 d7-b5;e7-d6;g8-e7;e7-f5;h8-f8;f8-e8;e8-e1;e1-f1
+45/60 [SUCCESS] 1553626475+00 inputs/5.txt  04 c8-g4;d5-e4;d8-d2;d2-d1
+46/60 [FAIL]    1553626475+20 inputs/50.txt 08 False
+47/60 [SUCCESS] 1553626495+12 inputs/51.txt 08 c6-c5;c5-d4;d4-d3;b8-c6;c6-d4;a8-c8;c8-c1;d4-b3
+48/60 [FAIL]    1553626508+20 inputs/52.txt 08 False
+49/60 [FAIL]    1553626528+20 inputs/53.txt 08 False
+50/60 [FAIL]    1553626548+20 inputs/54.txt 08 False
+51/60 [FAIL]    1553626568+20 inputs/55.txt 09 False
+52/60 [FAIL]    1553626588+20 inputs/56.txt 09 False
+53/60 [FAIL]    1553626608+20 inputs/57.txt 09 False
+54/60 [SUCCESS] 1553626629+05 inputs/58.txt 09 h1-b1;b1-b8;c2-c4;c4-c5;c5-d6;d6-c7;c7-c8q;c8-c6;b8-c8
+55/60 [FAIL]    1553626634+20 inputs/59.txt 09 False
+56/60 [SUCCESS] 1553626654+00 inputs/6.txt  04 c6-d4;e7-f6;f8-b4;d8-e7
+57/60 [SUCCESS] 1553626654+12 inputs/60.txt 09 c3-c4;c2-d2;a8-c7;c7-e6;c4-c5;c5-c6;c6-c7;c7-b8q;b8-c7
+58/60 [SUCCESS] 1553626666+00 inputs/7.txt  04 d8-f6;f6-f2;g8-f6;f6-e4
+59/60 [SUCCESS] 1553626666+00 inputs/8.txt  04 f6-e4;e7-e6;d8-h4;h4-f2
+60/60 [SUCCESS] 1553626667+00 inputs/9.txt  04 c8-g4;d5-e4;d8-d2;d2-d1
+Done, passed 41 out of 60.
+
+
+
+         293053102 function calls in 380.581 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  7607074   40.787    0.000  110.579    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1921(push)
+ 12403158   34.969    0.000   34.969    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:684(_attackers_mask)
+  1684104   27.466    0.000  357.064    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:37(generate)
+  7607074   14.927    0.000   14.927    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1281(__init__)
+  7632712   11.828    0.000   15.933    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:780(_remove_piece_at)
+ 20787945   11.514    0.000   11.514    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:623(piece_type_at)
+  6665841   10.758    0.000   79.201    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3218(generate_legal_moves)
+  3704906    9.846    0.000   12.060    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3161(_slider_blockers)
+ 19231380    9.790    0.000    9.790    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:210(scan_reversed)
+ 13761277    9.000    0.000    9.000    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:441(__init__)
+  8262908    8.690    0.000   33.801    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3180(_is_safe)
+  4332449    8.539    0.000   18.918    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1442(generate_pseudo_legal_moves)
+  3803537    8.427    0.000   37.407    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1230(copy)
+  7630073    7.731    0.000   12.596    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3302(_from_chess960)
+  3294640    7.667    0.000   13.238    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3193(_generate_evasions)
+ 12286794    7.579    0.000   42.199    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:702(attackers_mask)
+  3550158    7.127    0.000    8.603    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:2878(is_castling)
+  7607074    7.075    0.000    7.075    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:573(_clear_board)
+  7607074    6.417    0.000   21.344    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1915(_board_state)
+  3803537    6.400    0.000   43.807    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3380(copy)
+  3803537    5.935    0.000   28.980    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1360(__init__)
+  3812083    5.677    0.000   10.717    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:817(_set_piece_at)
+  6034073    5.550    0.000    8.416    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:642(king)
+  7299764    5.409    0.000   31.019    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:705(is_attacked_by)
+  8938521    5.309    0.000    5.309    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:468(__bool__)
+       60    5.223    0.087  380.603    6.343 /home/matjazmav/Projects/A-S01/app/solve.py:16(solve)
+  3803537    5.173    0.000   12.600    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1415(clear_board)
+  3803537    4.979    0.000   76.653    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1714(is_checkmate)
+  3803537    4.886    0.000   26.513    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1529(is_check)
+  2230476    4.831    0.000   29.665    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1534(is_into_check)
+  1541259    4.562    0.000   30.671    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:7(__init__)
+  1359931    4.271    0.000   13.224    0.000 /usr/lib/python3.6/queue.py:115(put)
+  8164332    3.745    0.000    3.745    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:207(msb)
+  3803537    3.684    0.000    7.278    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:546(__init__)
+  7607074    3.449    0.000    3.454    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3317(_to_chess960)
+  1502882    3.376    0.000    4.578    0.000 /usr/lib/python3.6/threading.py:334(notify)
+  1687989    3.220    0.000    6.140    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:615(piece_at)
+  3803537    3.167    0.000   15.767    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1397(clear)
+  3803537    3.161    0.000    3.161    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:2860(is_zeroing)
+  1541199    3.091    0.000    9.017    0.000 /home/matjazmav/Projects/A-S01/app/utils/ZobristHasher.py:20(update)
+   171591    2.448    0.000    5.240    0.000 /home/matjazmav/Projects/A-S01/app/heuristic/Covering.py:29(__promotion)
+  3803537    2.163    0.000    2.163    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1419(clear_stack)
+  4452374    2.017    0.000    2.017    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:34(__lt__)
+  1359931    2.014    0.000    3.068    0.000 /usr/lib/python3.6/queue.py:226(_put)
+   171591    2.002    0.000   15.531    0.000 /home/matjazmav/Projects/A-S01/app/heuristic/Covering.py:21(__score)
+  3803537    1.784    0.000    5.265    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:587(clear_board)
+  4712750    1.736    0.000    1.736    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:2849(is_en_passant)
+  1541259    1.552    0.000   17.083    0.000 /home/matjazmav/Projects/A-S01/app/heuristic/Covering.py:15(score)
+  1577059    1.494    0.000    1.494    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:385(__init__)
+  7117408    1.479    0.000    1.479    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:127(square_file)
+  1282107    1.381    0.000    6.668    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:714(attackers)
+   864429    1.280    0.000    1.280    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:654(attacks_mask)
+  3871129    1.279    0.000    1.279    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:2897(clean_castling_rights)
+  1502882    1.202    0.000    1.202    0.000 /usr/lib/python3.6/threading.py:254(_is_owned)
+  1502882    1.157    0.000    1.157    0.000 /usr/lib/python3.6/threading.py:239(__enter__)
+  1359931    1.107    0.000   14.331    0.000 /usr/lib/python3.6/queue.py:178(put_nowait)
+  1453758    1.047    0.000    1.047    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3559(__init__)
+  1282167    1.015    0.000    1.015    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:216(popcount)
+   142951    0.960    0.000    1.923    0.000 /usr/lib/python3.6/queue.py:229(_get)
+  1168755    0.848    0.000    0.848    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:201(scan_forward)
+  1502882    0.764    0.000    0.764    0.000 /usr/lib/python3.6/threading.py:242(__exit__)
+   165896    0.728    0.000    1.806    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3261(generate_castling_moves)
+  1282167    0.608    0.000    1.622    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3583(__len__)
+   142951    0.560    0.000    3.166    0.000 /usr/lib/python3.6/queue.py:147(get)
+  1171217    0.409    0.000    0.409    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:131(square_rank)
+   142965    0.317    0.000    0.425    0.000 /usr/lib/python3.6/queue.py:90(empty)
+  1617344    0.310    0.000    0.310    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1610(is_variant_end)
+    92963    0.206    0.000    0.823    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3251(_attacked_for_king)
+   171591    0.188    0.000    0.391    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:607(pieces)
+   285916    0.178    0.000    0.178    0.000 /usr/lib/python3.6/queue.py:223(_qsize)
+   209327    0.167    0.000    0.615    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3252(<genexpr>)
+   142905    0.160    0.000    0.239    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1379(legal_moves)
+   142951    0.149    0.000    3.315    0.000 /usr/lib/python3.6/queue.py:186(get_nowait)
+   171591    0.100    0.000    0.100    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:591(pieces_mask)
+   171651    0.087    0.000    0.087    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3577(__iter__)
+   142905    0.083    0.000    0.083    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3470(__iter__)
+   142905    0.079    0.000    0.079    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3460(__init__)
+    46080    0.063    0.000    0.114    0.000 /usr/lib/python3.6/random.py:173(randrange)
+   297242    0.062    0.000    0.062    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:1918(_push_capture)
+    46080    0.051    0.000    0.051    0.000 /usr/lib/python3.6/random.py:223(_randbelow)
+   142951    0.045    0.000    0.045    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:78(is_goal)
+    46080    0.029    0.000    0.143    0.000 /usr/lib/python3.6/random.py:217(randint)
+    22999    0.029    0.000    0.029    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:3254(_castling_uncovers_rank_attack)
+       60    0.005    0.000    0.170    0.003 /home/matjazmav/Projects/A-S01/app/utils/ZobristHasher.py:5(<listcomp>)
+       60    0.003    0.000    0.009    0.000 /home/matjazmav/Projects/A-S01/app/utils/ZobristHasher.py:7(hash)
+      180    0.001    0.000    0.001    0.000 /usr/lib/python3.6/threading.py:215(__init__)
+       60    0.001    0.000    0.002    0.000 /home/matjazmav/Projects/A-S01/app/heuristic/Covering.py:6(__init__)
+       46    0.001    0.000    0.002    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:81(get_path)
+       60    0.001    0.000    0.002    0.000 /usr/lib/python3.6/queue.py:27(__init__)
+      224    0.000    0.000    0.000    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:471(__eq__)
+       60    0.000    0.000    0.170    0.003 /home/matjazmav/Projects/A-S01/app/utils/ZobristHasher.py:4(__init__)
+      234    0.000    0.000    0.000    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:447(uci)
+       60    0.000    0.000    0.000    0.000 /home/matjazmav/.local/lib/python3.6/site-packages/chess/__init__.py:673(attacks)
+       60    0.000    0.000    0.000    0.000 /home/matjazmav/Projects/A-S01/app/utils/Profiler.py:10(disable)
+      234    0.000    0.000    0.000    0.000 /home/matjazmav/Projects/A-S01/app/utils/State.py:31(__eq__)
+       60    0.000    0.000    0.000    0.000 /usr/lib/python3.6/queue.py:220(_init)
+
+
+

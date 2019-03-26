@@ -138,7 +138,7 @@ class Covering:
     for mating_square in self.mating_squares:
       h -= len(state.board.attackers(not self.enemy_king_color, mating_square))
     
-    return h + self.__promotion(state)
+    return h + self.__promotion(state) - state.moves_left/2
 
   def __promotion(self, state):
     
