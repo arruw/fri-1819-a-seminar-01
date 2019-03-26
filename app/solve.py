@@ -36,18 +36,16 @@ def solve(board: Board, moves: int, timeout: int):
     if current.is_goal():
       return current.get_path()
 
-    # We can not do more moves
-    if current.movesLeft == 0:
-      continue
-
     # Generate possible next states
     for neighbor in current.generate():
-      
-      if neighbor.id in solved:
-        if solved[neighbor.id].movesLeft > neighbor.movesLeft:
+
+      try:
+        if solved[neighbor.id].moves_left > neighbor.moves_left:
           continue
         else:
           del solved[neighbor.id]
+      except KeyError:
+        pass
 
       queue.put_nowait(neighbor)
       

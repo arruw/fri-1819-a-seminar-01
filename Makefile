@@ -14,4 +14,4 @@ pack: clean
 	chmod u+x solution
 
 test:
-	python3 app/test.py inputs/ 2>&1 | tee "outputs/$(shell date +%s).log"
+	python3 app/test.py inputs/ 2>&1 | tee "outputs/$(shell date +%s).out"

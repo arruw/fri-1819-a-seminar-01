@@ -43,7 +43,7 @@ class Covering:
       path_len = len(path)
 
       # Is path short enough
-      if path_len > state.movesLeft:
+      if path_len > state.moves_left:
         continue
 
       # Is path clear & not move in check

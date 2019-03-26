@@ -21,10 +21,10 @@ class State:
 
   """
 
-  def __init__(self, board, movesLeft, parent, move, is_checkmate, hf, zhf):
+  def __init__(self, board, moves_left, parent, move, is_checkmate, hf, zhf):
     # Core
     self.board = board
-    self.movesLeft = movesLeft
+    self.moves_left = moves_left
     self.is_checkmate = is_checkmate
 
     # Pointer
@@ -52,25 +52,8 @@ class State:
     return self.score < other.score
   
   def generate(self):
-    if self.movesLeft <= 0:
+    if self.moves_left < 0:
       return
-
-    def __next(move):
-      board = self.board.copy(stack=False)
-      board.move_stack = self.board.move_stack.copy()
-      board.push(move)
-      is_checkmate = board.is_checkmate()
-      board.push(MOVE_NULL)
-
-      return State(
-        board=board,
-        movesLeft=self.movesLeft-1,
-        parent=self,
-        move=move,
-        is_checkmate=is_checkmate,
-        hf=self.hf,
-        zhf=self.zhf
-      )
 
     for move in self.board.legal_moves:
 
@@ -79,14 +62,35 @@ class State:
         continue
 
       # Check is allowed only in last move
-      if self.movesLeft > 1 and self.board.is_into_check(move):
+      if self.moves_left > 1 and self.board.is_into_check(move):
         continue
       
       # King can't move into check
       if self.board.piece_type_at(move.from_square) == chess.KING and self.board.is_into_check(move):
         continue
 
-      yield __next(move)
+            # Copy board
+      board = self.board.copy(stack=False)
+      board.move_stack = self.board.move_stack.copy()
+
+      # Make move
+      board.push(move)
+      is_checkmate = board.is_checkmate()
+      moves_left = self.moves_left-1
+      board.push(MOVE_NULL)
+
+      if not is_checkmate and moves_left == 0:
+        continue
+
+      yield State(
+        board=board,
+        moves_left=moves_left,
+        parent=self,
+        move=move,
+        is_checkmate=is_checkmate,
+        hf=self.hf,
+        zhf=self.zhf
+      )
 
   def is_goal(self):
     return self.is_checkmate
@@ -162,7 +166,7 @@ class Covering:
       path_len = len(path)
 
       # Is path short enough
-      if path_len > state.movesLeft:
+      if path_len > state.moves_left:
         continue
 
       # Is path clear & not move in check
@@ -214,9 +218,6 @@ class ZobristHasher:
     return zobrist_hash
   
   def update(self, zobrist_hash, board, move):
-    if not move:
-      return zobrist_hash
-
     piece = board.piece_at(move.from_square)
     piece_index = piece.piece_type
     if piece.color:
@@ -254,18 +255,16 @@ def solve(board, moves):
     if current.is_goal():
       return current.get_path()
 
-    # We can not do more moves
-    if current.movesLeft == 0:
-      continue
-
     # Generate possible next states
     for neighbor in current.generate():
       
-      if neighbor.id in solved:
-        if solved[neighbor.id].movesLeft > neighbor.movesLeft:
+      try:
+        if solved[neighbor.id].moves_left > neighbor.moves_left:
           continue
         else:
           del solved[neighbor.id]
+      except KeyError:
+        pass
 
       generated.put_nowait(neighbor)
       

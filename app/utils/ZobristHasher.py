@@ -18,9 +18,6 @@ class ZobristHasher:
     return zobrist_hash
   
   def update(self, zobrist_hash, board: chess.Board, move: chess.Move):
-    if not move:
-      return zobrist_hash
-
     piece: chess.Piece = board.piece_at(move.from_square)
     piece_index = piece.piece_type
     if piece.color:
