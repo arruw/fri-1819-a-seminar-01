@@ -182,7 +182,7 @@ class Covering:
       if not is_possible:
         continue
 
-      h -= 1
+      h -= state.moves_left-path_len
     
     return h
       
