@@ -3,9 +3,10 @@ from utils.State import State
 
 class Euclidean:
 
-  def __init__(self, board: Board):
+  def __init__(self, board: Board, total_moves: int):
     self.__cache = dict()
     self.enemy_king_square: Square = board.king(not board.turn)
+    self.total_moves = total_moves
 
   def score(self, state: State) -> int:
     if state.id not in self.__cache:

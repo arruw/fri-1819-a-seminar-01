@@ -17,9 +17,9 @@ class State:
     # Id
     self.zhf = zhf
     try:
-      self.id = zhf.update(self.parent.id, self.parent.board, self.move)
+      self.id = zhf.update(self.parent.id, self.parent.board, self.move, self.moves_left)
     except AttributeError:
-      self.id = zhf.hash(self.board)
+      self.id = zhf.hash(self.board, self.moves_left)
 
     # Score
     self.hf = hf
@@ -35,35 +35,27 @@ class State:
     return self.score < other.score
   
   def generate(self):
-    if self.moves_left < 0:
+    if self.moves_left <= 0:
       return
 
     for move in self.board.legal_moves:
-
-      # Can't eat enemy king
-      if self.board.piece_type_at(move.to_square) == KING:
-        continue
-
-      # Check is allowed only in last move
-      if self.moves_left > 1 and self.board.is_into_check(move):
-        continue
       
-      # King can't move into check
-      if self.board.piece_type_at(move.from_square) == KING and self.board.is_into_check(move):
-        continue
+      moves_left = self.moves_left-1
 
       # Copy board
       board: Board = self.board.copy(stack=False)
       board.move_stack = self.board.move_stack.copy()
-
-      # Make move
       board.push(move)
-      is_checkmate = board.is_checkmate()
-      moves_left = self.moves_left-1
-      board.push(MOVE_NULL)
 
-      if not is_checkmate and moves_left == 0:
+      is_check = board.is_check()
+      if moves_left > 0 and is_check:
         continue
+
+      is_checkmate = not any(board.generate_legal_moves()) if is_check else False
+      if moves_left == 0 and not is_checkmate:
+        continue
+
+      board.push(MOVE_NULL)
 
       yield State(
         board=board,

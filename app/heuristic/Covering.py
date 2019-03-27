@@ -3,7 +3,7 @@ from utils.State import State
 
 class Covering:
 
-  def __init__(self, board: Board):
+  def __init__(self, board: Board, total_moves: int):
     self.__cache = dict()
 
     self.enemy_king_color: Color = not board.turn
@@ -11,6 +11,9 @@ class Covering:
 
     self.mating_squares: [int] = list(board.attacks(enemy_king_square))
     self.mating_squares.append(enemy_king_square)
+
+    self.total_moves = total_moves
+    self.weight = 4.5/total_moves
 
   def score(self, state: State) -> int:
     if state.id not in self.__cache:
@@ -24,7 +27,7 @@ class Covering:
     for mating_square in self.mating_squares:
       h -= len(state.board.attackers(not self.enemy_king_color, mating_square))
     
-    return h + self.__promotion(state) - state.moves_left/2
+    return h + self.__promotion(state) + ((self.total_moves - state.moves_left) * self.weight) 
 
   def __promotion(self, state: State) -> int:
     

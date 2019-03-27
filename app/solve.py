@@ -9,10 +9,6 @@ from queue import PriorityQueue
 from heuristic.Covering import Covering as Heuristic
 from utils.ZobristHasher import ZobristHasher
 
-# TODO: https://www.growingwiththeweb.com/2012/06/a-pathfinding-algorithm.html
-# http://mat.uab.cat/~alseda/MasterOpt/AStar-Algorithm.pdf
-# https://gitlab.com/dsaiko
-# http://eprints.fri.uni-lj.si/3610/1/63100292-MITJA_RIZVI%C4%8C-Avtomatsko_odkrivanje_zanimivih_%C5%A1ahovskih_problemov.pdf
 def solve(board: Board, moves: int, timeout: int):
 
   if moves <= 0:
@@ -23,8 +19,8 @@ def solve(board: Board, moves: int, timeout: int):
   solved = dict()
 
   # Initialize starting state
-  hf = Heuristic(board)
-  start = State(board, moves, None, None, False, hf, ZobristHasher())
+  hf = Heuristic(board, moves)
+  start = State(board, moves, None, None, False, hf, ZobristHasher(moves))
   queue.put_nowait(start)
 
   time_limit = time() + timeout
@@ -39,13 +35,8 @@ def solve(board: Board, moves: int, timeout: int):
     # Generate possible next states
     for neighbor in current.generate():
 
-      try:
-        if solved[neighbor.id].moves_left > neighbor.moves_left:
-          continue
-        else:
-          del solved[neighbor.id]
-      except KeyError:
-        pass
+      if neighbor.id in solved:
+        continue
 
       queue.put_nowait(neighbor)
       
